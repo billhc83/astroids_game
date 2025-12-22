@@ -4,10 +4,15 @@ from logger import log_state
 def main():
     pygame.init()
     screen = pygame.display.set_mode((constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT))
+    pygame.time.Clock
+    dt = 0 
     while True:
         log_state()
         screen.fill("black")
         pygame.display.flip()
+        clock = pygame.time.Clock()
+        clock.tick(60)
+        dt = clock.tick(60)/1000
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
