@@ -3,7 +3,7 @@ import constants
 # Base class for game objects
 class CircleShape(pygame.sprite.Sprite):
     def __init__(self, x, y, radius):
-        # we will   be using this later
+        # we will be using this later
         if hasattr(self, "containers"):
             super().__init__(self.containers)
         else:
@@ -20,3 +20,9 @@ class CircleShape(pygame.sprite.Sprite):
     def update(self, dt):
         # must override
         pass
+    def collides_with(self, other):
+        
+        if self.position.distance_to(other.position) < (self.radius + other.radius):
+            return True
+        else:
+            return False
